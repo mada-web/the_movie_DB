@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css'
+import 'semantic-ui-css/semantic.min.css'
+import Header from './components/Header'
+// import Item from './components/FilmItem'
+import { List } from './utils/List'
+import { BrowserRouter, Route } from 'react-router-dom'
 
-function App() {
+// import { Stories } from './views/StoriesList'
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Route path="/" component={Header} />
+        <Route path="/films" component={List} />
+        {/* <Route path="/ask" render={() => <Stories find={'askstories'} />} /> */}
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
