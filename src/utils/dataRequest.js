@@ -1,7 +1,7 @@
 const apiKey = '675b5d7456ae836e379006ead14f14fa'
 
-export const getData = async (find, pageNumber) => {
-  const url = `https://api.themoviedb.org/3/movie/${find}?api_key=${apiKey}&page=${pageNumber}`
+export const getData = async (find, pageNumber, type) => {
+  const url = `https://api.themoviedb.org/3/${type}/${find}?api_key=${apiKey}&page=${pageNumber}`
 
   try {
     const response = await fetch(url)

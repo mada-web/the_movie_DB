@@ -3,18 +3,10 @@ import { Card, Icon, Image } from 'semantic-ui-react'
 
 const Item = (props) => {
   const {
-    // backdrop_path,
-    // budget,
-    // genres,
-    // homepage,
-    // imdb_id,
-    // overview,
-    // popularity,
-    // production_companies,
-    // production_countries,
-    // status,
-    // id,
+    first_air_date,
+    name,
     vote_average,
+    profile_path,
     poster_path,
     release_date,
     runtime,
@@ -23,14 +15,14 @@ const Item = (props) => {
   } = props.info
 
   const baseUrl = 'https://image.tmdb.org/t/p/w500'
-  const doneUrl = baseUrl + poster_path
+  const doneUrl = baseUrl + (poster_path ? poster_path : profile_path)
 
   return (
     <Card>
       <Image src={doneUrl} />
       <Card.Content>
-        <Card.Header>{title}</Card.Header>
-        <Card.Meta>{release_date}</Card.Meta>
+        <Card.Header>{title ? title : name}</Card.Header>
+        <Card.Meta>{release_date ? release_date : first_air_date}</Card.Meta>
         <Card.Description>{tagline}</Card.Description>
       </Card.Content>
       <Card.Content extra>

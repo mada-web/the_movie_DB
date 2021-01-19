@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+h3.ui.header {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
 
-h3.ui.header a {
-  margin-left: 10vw;
-  color: #fff;
-}
-h3.ui.header a:nth-child(2) {
-  margin-left: 2vw;
-}
 .ui.segment {
   background-color: #032541 !important;
 }
@@ -23,12 +20,18 @@ h3.ui.header a:nth-child(2) {
   margin: 5vh 38% !important ;
 }
 
-h3.ui.header {
-  font-size: 1rem !important;
-  font-family: 'Roboto', sans-serif !important ;
-}
 h3.ui.header img {
-  width: 8vw;
+  width: 12vw;
   height: auto;
   vertical-align: middle;
+  padding-top: 1.3rem;
+}
+.ui.vertical.menu {
+  margin-left: 8rem;
+}
+.ui.input {
+  width: 300px;
+  height: 40px;
+  margin-left: 8rem;
+  margin-top: 1rem;
 }

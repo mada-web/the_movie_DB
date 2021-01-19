@@ -1,31 +1,32 @@
 import { useEffect, useState } from 'react'
 import { getData } from '../utils/dataRequest'
-import Item from '../components/FilmItem'
+import PeopleCard from '../components/PeopleCard'
 import Pagination from '../components/Pagination'
 import { Card } from 'semantic-ui-react'
 // import { Loader } from '../components/Preloader'
 
-export const Page = (props) => {
-  const { find } = props
-  const [newsList, setNewsList] = useState(null)
+export const PeoplePage = (props) => {
+  const { find, type } = props
+  const [newList, setNewList] = useState(null)
   const [pageNumber, setPageNumber] = useState(1)
 
   useEffect(() => {
     ;(async () => {
-      const data = await getData(find, pageNumber)
+      const data = await getData(find, pageNumber, type)
 
-      setNewsList(data.results)
+      setNewList(data.results)
     })()
-  }, [find, pageNumber])
+  }, [find, pageNumber, type])
 
-  if (!newsList) {
+  if (!newList) {
     return <span>Loading...</span>
   }
+  console.log(newList)
   return (
     <div className="main-content">
       <Card.Group>
-        {newsList.map((info) => (
-          <Item info={info} key={info.id} />
+        {newList.map((info) => (
+          <PeopleCard info={info} key={info.id} />
         ))}
       </Card.Group>
       <Pagination setPageNumber={setPageNumber} />
