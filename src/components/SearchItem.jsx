@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 
-const FilmItem = (props) => {
+const SearchItem = (props) => {
   const {
     first_air_date,
     name,
@@ -16,10 +16,12 @@ const FilmItem = (props) => {
 
   const baseUrl = 'https://image.tmdb.org/t/p/w500'
   const doneUrl = baseUrl + (poster_path ? poster_path : profile_path)
+  const imgNotFound =
+    'https://lh3.googleusercontent.com/proxy/seQgwbueiq4uxC8lFaY653o3BuqW61R_9eyu4e2jhWcX3GkURdhQWMRWQoH-ssZqTNI63noiaM7TrF1b8KTCdVVwi8NE_ZtG2cJgYzrtww'
 
   return (
     <Card>
-      <Image src={doneUrl} />
+      <Image src={poster_path ? doneUrl : imgNotFound} />
       <Card.Content>
         <Card.Header>{title ? title : name}</Card.Header>
         <Card.Meta>{release_date ? release_date : first_air_date}</Card.Meta>
@@ -37,4 +39,4 @@ const FilmItem = (props) => {
   )
 }
 
-export default FilmItem
+export default SearchItem

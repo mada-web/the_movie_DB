@@ -1,20 +1,22 @@
 import React from 'react'
-import { Pagination as SemanticPaginaton } from 'semantic-ui-react'
-
-const DEFAULT_ACTIVE_PAGE = 1
-const TOTAL_PAGES = 10
+// import { useEffect } from 'react'
+import { Pagination as SemanticPagination } from 'semantic-ui-react'
 
 const Pagination = (props) => {
-  const { setPageNumber } = props
+  const { setPageNumber, dataRequest, history, find, type, pageNumber } = props
+
+  // useEffect(() => {
+  // })
 
   const onPageChange = (_event, data) => {
     setPageNumber(data.activePage)
   }
+  // history.push(`/${type}/${find}/${pageNumber}`)
 
   return (
-    <SemanticPaginaton
-      defaultActivePage={DEFAULT_ACTIVE_PAGE}
-      totalPages={TOTAL_PAGES}
+    <SemanticPagination
+      defaultActivePage={dataRequest.page}
+      totalPages={dataRequest.total_pages}
       onPageChange={onPageChange}
     />
   )
