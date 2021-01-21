@@ -12,7 +12,7 @@ h3.ui.header {
   justify-content: center;
 }
 
-.ui.cards > .card {
+.ui.cards > .card a {
   width: 16% !important ;
 }
 
@@ -34,4 +34,21 @@ h3.ui.header img {
   height: 40px;
   margin-left: 8rem;
   margin-top: 1rem;
+}
+.description,
+.meta,
+.header {
+  margin-top: 1rem;
+  margin-left: 2rem;
+}
+.ui.label:first-child {
+  margin-top: 1rem;
+  margin-left: 2rem !important;
+}
+.ui.primary.button {
+  margin-top: 1rem;
+  margin-left: 2rem !important;
+}
+.content{
+  font-size: 18px;
 }

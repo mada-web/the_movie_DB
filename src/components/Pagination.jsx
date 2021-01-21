@@ -1,17 +1,12 @@
 import React from 'react'
-// import { useEffect } from 'react'
 import { Pagination as SemanticPagination } from 'semantic-ui-react'
 
 const Pagination = (props) => {
-  const { setPageNumber, dataRequest, history, find, type, pageNumber } = props
-
-  // useEffect(() => {
-  // })
+  const { setPageNumber, dataRequest } = props
 
   const onPageChange = (_event, data) => {
     setPageNumber(data.activePage)
   }
-  // history.push(`/${type}/${find}/${pageNumber}`)
 
   return (
     <SemanticPagination

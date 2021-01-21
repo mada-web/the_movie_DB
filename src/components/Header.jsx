@@ -17,7 +17,7 @@ const Header = (props) => {
   useEffect(() => {
     const listener = (event) => {
       if (event.code === 'Enter' || event.code === 'NumpadEnter') {
-        history.push(`/search/${searchInput}`)
+        history.push(`/search/${searchInput}/1`)
       }
     }
     document.addEventListener('keydown', listener)
@@ -77,7 +77,7 @@ const Header = (props) => {
         <Menu vertical>
           <Dropdown item text="People">
             <Dropdown.Menu>
-              <Link to="/person/popular">
+              <Link to="/person/popular/1">
                 <Dropdown.Item active>Popular</Dropdown.Item>
               </Link>
             </Dropdown.Menu>

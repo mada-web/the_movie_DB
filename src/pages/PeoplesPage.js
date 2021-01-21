@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
 import { getData } from '../utils/request'
-import PeopleCard from '../components/PeopleCard'
+import PeopleCard from '../components/PeopleCards'
 import Pagination from '../components/Pagination'
 import { Card } from 'semantic-ui-react'
 // import { Loader } from '../components/Preloader'
 
-export const PeoplePage = (props) => {
-  const { find, type } = props
+export const PeoplesPage = (props) => {
+  const { find, type, history } = props
+  const { page } = props.match.params
   const [newPage, setNewPage] = useState(null)
-  const [pageNumber, setPageNumber] = useState(1)
+  const [pageNumber, setPageNumber] = useState(page)
 
   useEffect(() => {
     ;(async () => {
@@ -16,7 +17,8 @@ export const PeoplePage = (props) => {
 
       setNewPage(data)
     })()
-  }, [find, pageNumber, type])
+    history.push(`/${type}/${find}/${pageNumber}`)
+  }, [find, pageNumber, type, history])
 
   if (!newPage) {
     return <span>Loading...</span>
@@ -25,7 +27,7 @@ export const PeoplePage = (props) => {
     <div className="main-content">
       <Card.Group>
         {newPage.results.map((info) => (
-          <PeopleCard info={info} key={info.id} />
+          <PeopleCard info={info} key={info.id} type={type} />
         ))}
       </Card.Group>
       <Pagination setPageNumber={setPageNumber} dataRequest={newPage} />
