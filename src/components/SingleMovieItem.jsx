@@ -1,12 +1,14 @@
 import React from 'react'
+import Modal from './Modal'
+import { getImageUrl } from '../utils/helpers'
 import { Button, Icon, Item as SemanticItem, Label } from 'semantic-ui-react'
 
 const MovieItem = (props) => {
   const {
-    // id,
-    // backdrop_path,
+    backdrop_path,
     status,
     episode_run_time,
+    videos,
     first_air_date,
     seasons,
     original_language,
@@ -25,29 +27,30 @@ const MovieItem = (props) => {
   } = props.info
 
   const movieGenres = genres.map((el) => el.name).join(', ')
+  const videosID = videos.results[0].key
 
-  const baseUrl = 'https://image.tmdb.org/t/p/w500'
-  const doneUrl = baseUrl + poster_path
+  const posterUrl = getImageUrl(poster_path, 'small')
   const imgNotFound =
     'https://lh3.googleusercontent.com/proxy/seQgwbueiq4uxC8lFaY653o3BuqW61R_9eyu4e2jhWcX3GkURdhQWMRWQoH-ssZqTNI63noiaM7TrF1b8KTCdVVwi8NE_ZtG2cJgYzrtww'
 
-  // const backgroundImageUrl = baseUrl + backdrop_path
-  // const divStyle = {
-  //   color: 'black',
-  //   backgroundImage: `url(${backgroundImageUrl})`,
-  //   backgroundPosition: 'center',
-  //   backgroundSize: 'cover',
-  //   backgroundRepeat: 'no-repeat',
-  // }
+  const backgroundImageUrl = getImageUrl(backdrop_path, 'large')
+
+  const divStyle = {
+    color: 'black',
+    backgroundImage: `linear-gradient( rgba(25, 25, 25, 0.8), rgba(25, 25, 25, 0.8) ), url(${backgroundImageUrl})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+  }
+
   return (
-    <SemanticItem>
-      <SemanticItem.Image
-        src={poster_path ? doneUrl : imgNotFound}
-        // style={divStyle}
-      />
+    <SemanticItem className="semantic-item" style={divStyle}>
+      <SemanticItem.Image src={poster_path ? posterUrl : imgNotFound} />
 
       <SemanticItem.Content>
-        <SemanticItem.Header>{title}</SemanticItem.Header>
+        <SemanticItem.Header>
+          <h1>{title}</h1>
+        </SemanticItem.Header>
         <SemanticItem.Meta>
           <span className="cinema">{tagline}</span>
         </SemanticItem.Meta>
@@ -57,8 +60,8 @@ const MovieItem = (props) => {
         <SemanticItem.Description>
           Genres: {movieGenres}
         </SemanticItem.Description>
-        <SemanticItem.Description>
-          Overview: {overview}
+        <SemanticItem.Description className="overview-item">
+          <h2>Overview:</h2> <p> {overview}</p>
         </SemanticItem.Description>
         <SemanticItem.Extra>
           <Label>{runtime ? runtime : episode_run_time[0]} min</Label>
@@ -68,24 +71,22 @@ const MovieItem = (props) => {
             Original language: {original_language}
           </SemanticItem.Description>
           <SemanticItem.Description>
-            {budget ? (
+            {!!budget && (
               <span>
                 Budget:{' '}
-                {budget.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')} $)
+                {budget.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')} $
               </span>
-            ) : (
-              <span>Seasons: {seasons.length} </span>
             )}
+            {!!seasons && <span>Seasons: {seasons.length} </span>}
           </SemanticItem.Description>
-          {/* seasons */}
           <SemanticItem.Description>
-            {revenue ? (
+            {!!revenue && (
               <span>
                 Revenue:{' '}
-                {revenue.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}{' '}
-                $)
+                {revenue.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')} $
               </span>
-            ) : (
+            )}
+            {created_by && created_by.length && (
               <span>Creator: {created_by[0].name} </span>
             )}
           </SemanticItem.Description>
@@ -96,6 +97,8 @@ const MovieItem = (props) => {
             </a>
             <Icon name="right chevron" />
           </Button>
+
+          <Modal videosID={videosID} />
         </SemanticItem.Extra>
       </SemanticItem.Content>
     </SemanticItem>

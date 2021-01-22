@@ -8,7 +8,7 @@ const PersonItem = (props) => {
   const doneUrl = baseUrl + profile_path
 
   return (
-    <SemanticItem>
+    <SemanticItem className="person-item">
       <SemanticItem.Image src={doneUrl} />
 
       <SemanticItem.Content>

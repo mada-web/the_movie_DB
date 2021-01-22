@@ -6,6 +6,9 @@ h3.ui.header {
 
 .ui.segment {
   background-color: #032541 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  margin: 3vh 0 !important;
 }
 
 .ui.cards {
@@ -49,6 +52,28 @@ h3.ui.header img {
   margin-top: 1rem;
   margin-left: 2rem !important;
 }
-.content{
-  font-size: 18px;
+.content {
+  font-size: 20px;
+  margin-top: 10vh;
+  color: #fff;
+}
+.content .description {
+  width: 50vw;
+}
+.main-content .item {
+  display: flex;
+}
+
+.semantic-item .image img {
+  border-radius: 10px;
+  margin: 5vw 0vh 5vh 10vw !important;
+}
+.person-item {
+  background-color: #032541;
+}
+.modal-button {
+  margin: 13px 0.25em 0 20px !important;
+}
+.overview-item p {
+  margin-top: -20px;
 }

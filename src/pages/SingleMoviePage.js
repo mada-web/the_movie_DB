@@ -11,6 +11,7 @@ export const MovieSinglePage = (props) => {
     ;(async () => {
       const data = await getMovData(id, type)
       setNewPage(data)
+      console.log('🚀 ~ file: SingleMoviePage.js ~ line 14 ~ ; ~ data', data)
     })()
   }, [id, type])
 
