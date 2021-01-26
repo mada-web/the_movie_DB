@@ -1,16 +1,19 @@
 import React from 'react'
 import { Input as SemanticInput } from 'semantic-ui-react'
 
-export const Input = ({ setValue }) => {
+export const Input = (props) => {
+  const { setValue, size, placeholder, icon } = props
   const getInputValue = (_event, data) => {
     setValue(data.value)
   }
 
   return (
     <SemanticInput
-      placeholder="Search..."
-      size="small"
+      placeholder={placeholder}
+      size={size}
       onChange={getInputValue}
+      icon={icon}
+      iconPosition="left"
     />
   )
 }

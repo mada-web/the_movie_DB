@@ -27,7 +27,7 @@ const MovieItem = (props) => {
   } = props.info
 
   const movieGenres = genres.map((el) => el.name).join(', ')
-  const videosID = videos.results[0].key
+  const [video] = videos.results
 
   const posterUrl = getImageUrl(poster_path, 'small')
   const imgNotFound =
@@ -98,7 +98,7 @@ const MovieItem = (props) => {
             <Icon name="right chevron" />
           </Button>
 
-          <Modal videosID={videosID} />
+          {video ? <Modal videoID={video.key} /> : null}
         </SemanticItem.Extra>
       </SemanticItem.Content>
     </SemanticItem>

@@ -1,10 +1,10 @@
-import React from 'react'
+import { useState } from 'react'
 import Video from './Video'
 import { Button, Modal as SemanticModal, Icon } from 'semantic-ui-react'
 
 function Modal(props) {
-  const { videosID } = props
-  const [open, setOpen] = React.useState(false)
+  const { videoID } = props
+  const [open, setOpen] = useState(false)
 
   return (
     <SemanticModal
@@ -18,7 +18,7 @@ function Modal(props) {
         </Button>
       }
     >
-      <Video videosID={videosID} />
+      <Video videoID={videoID} />
     </SemanticModal>
   )
 }

@@ -84,7 +84,11 @@ const Header = (props) => {
           </Dropdown>
         </Menu>
 
-        <Input setValue={setSearchInput} />
+        <Input
+          setValue={setSearchInput}
+          size={'small'}
+          placeholder={'Search...'}
+        />
       </SemanticHeader>
     </Segment>
   )

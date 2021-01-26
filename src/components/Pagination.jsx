@@ -2,7 +2,7 @@ import React from 'react'
 import { Pagination as SemanticPagination } from 'semantic-ui-react'
 
 const Pagination = (props) => {
-  const { setPageNumber, dataRequest } = props
+  const { setPageNumber, currentPage, totalPages } = props
 
   const onPageChange = (_event, data) => {
     setPageNumber(data.activePage)
@@ -10,8 +10,8 @@ const Pagination = (props) => {
 
   return (
     <SemanticPagination
-      defaultActivePage={dataRequest.page}
-      totalPages={dataRequest.total_pages}
+      defaultActivePage={currentPage}
+      totalPages={totalPages}
       onPageChange={onPageChange}
     />
   )

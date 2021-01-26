@@ -5,17 +5,16 @@ h3.ui.header {
 }
 
 .ui.segment {
-  background-color: #032541 !important;
+  background-color: rgba(41, 41, 41, 1) !important;
   padding: 0 !important;
   border-radius: 0 !important;
-  margin: 3vh 0 !important;
 }
 
 .ui.cards {
   justify-content: center;
 }
 
-.ui.cards > .card a {
+.ui.cards > .card {
   width: 16% !important ;
 }
 
@@ -69,11 +68,32 @@ h3.ui.header img {
   margin: 5vw 0vh 5vh 10vw !important;
 }
 .person-item {
-  background-color: #032541;
+  background-color: rgba(41, 41, 41, 1);
 }
 .modal-button {
   margin: 13px 0.25em 0 20px !important;
 }
 .overview-item p {
   margin-top: -20px;
+}
+.ui.massive.input {
+  position: absolute;
+  top: 50vh;
+  left: 28.5vw;
+  height: 6vh;
+  width: 30vw;
+}
+.ui.input > input {
+  border-radius: 30px !important;
+}
+.main-page-content {
+  background-color: rgba(41, 41, 41, 1);
+  height: 92.8vh;
+  margin-top: -14px;
+}
+.main-page-content p {
+  color: #fff;
+  font-size: 100px;
+  text-align: center;
+  padding-top: 25vh;
 }

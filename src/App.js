@@ -2,6 +2,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 import Header from './components/Header'
 import { MoviesPage } from './pages/MoviesTvsPage'
+import { MainPage } from './components/Main'
 import { MovieSinglePage } from './pages/SingleMoviePage'
 import { PeoplesPage } from './pages/PeoplesPage'
 import { SearchPage } from './pages/SearchPage'
@@ -16,6 +17,7 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Route path="/" component={Header} />
+        <Route exact path="/" component={MainPage} />
         <Route
           exact
           path="/movie/popular/:page"
