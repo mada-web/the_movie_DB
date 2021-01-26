@@ -1,8 +1,7 @@
 import React from 'react'
-import google from '../img/google.jpg'
+import tmdb from '../img/tmdb.svg'
 import { useState, useEffect } from 'react'
 import { Input } from './Input'
-import { Image } from 'semantic-ui-react'
 
 export const MainPage = (props) => {
   const { history } = props
@@ -22,15 +21,13 @@ export const MainPage = (props) => {
 
   return (
     <div className="main-page-content">
-      <p>Google</p>
-      {/* <img src={google} alt="google is here" /> */}
+      <img className="main-page-image" src={tmdb} alt="tmdb icon" />
       <Input
         setValue={setSearchInput}
         size={'massive'}
-        placeholder={'Search Google'}
+        placeholder={'Search TMDB'}
         icon="search"
       />
     </div>
   )
 }
-;<Image className="main-page-image" src={google} fluid />

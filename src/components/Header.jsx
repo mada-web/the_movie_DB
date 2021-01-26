@@ -33,10 +33,12 @@ const Header = (props) => {
           <img src={tmdb} alt="React Logo" />
         </Link>
         <Menu vertical>
-          <Dropdown item text="Movies">
+          <Dropdown icon="false" item text="Movies">
             <Dropdown.Menu>
               <Link to="/movie/popular/1">
-                <Dropdown.Item active>Popular</Dropdown.Item>
+                <Dropdown.Item active icon="false">
+                  Popular
+                </Dropdown.Item>
               </Link>
               <Link to="/movie/now_playing/1">
                 {' '}
@@ -54,7 +56,7 @@ const Header = (props) => {
           </Dropdown>
         </Menu>
         <Menu vertical>
-          <Dropdown item text="TV Shows">
+          <Dropdown icon="false" item text="TV Shows">
             <Dropdown.Menu>
               <Link to="/tv/popular/1">
                 <Dropdown.Item active>Popular</Dropdown.Item>
@@ -75,7 +77,7 @@ const Header = (props) => {
           </Dropdown>
         </Menu>
         <Menu vertical>
-          <Dropdown item text="People">
+          <Dropdown icon="false" item text="People">
             <Dropdown.Menu>
               <Link to="/person/popular/1">
                 <Dropdown.Item active>Popular</Dropdown.Item>
