@@ -24,6 +24,32 @@ h3.ui.header {
   margin: 5vh 38% !important ;
 }
 
+.ui.dropdown {
+  text-align: center !important;
+}
+.ui.dropdown > .text {
+  font-size: 16px !important;
+}
+.ui.vertical.menu .dropdown.item .menu {
+  left: 0 !important;
+
+  border-radius: 0 !important;
+}
+.ui.vertical.menu .dropdown.item:not(.upward) .menu {
+  top: 43px !important;
+}
+.ui.menu .ui.dropdown .menu .active.item {
+  min-height: 42px !important;
+}
+
+.ui.dropdown .menu {
+  min-width: 209px !important;
+  padding-top: 10px !important;
+  font-size: 16px !important;
+  text-align: center !important;
+  font-family: Arial, sans-serif !important;
+}
+
 h3.ui.header img {
   width: 12vw;
   height: auto;
@@ -55,16 +81,23 @@ h3.ui.header img {
 }
 .content {
   font-size: 20px;
-  margin-top: 10vh;
+  margin-top: 5vh;
   color: #fff;
 }
-.content .description {
+#root > div > div.main-content > div > div.image > img {
+  border-radius: 10px;
+}
+
+#root > div > div.main-content > div > div.content > div:nth-child(4) {
   width: 50vw;
 }
 .main-content .item {
   display: flex;
 }
-
+.main-content {
+  background-color: rgba(41, 41, 41, 1);
+  margin-top: -14px;
+}
 .semantic-item .image img {
   border-radius: 10px;
   margin: 5vw 0vh 5vh 10vw !important;
@@ -100,4 +133,15 @@ h3.ui.header img {
 .main-page-content .ui.input {
   margin-left: 0;
   margin-top: 5rem;
+}
+.cast-cards {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+.cast-cards .ui.cards > .card {
+  width: 18% !important ;
+}
+.person-content .header {
+  font-size: 60px;
+  font-family: 'Bebas Neue', cursive;
 }

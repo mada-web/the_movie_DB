@@ -7,6 +7,10 @@ export const getMovData = async (id, type) => {
   try {
     const response = await fetch(url)
     const responseJson = await response.json()
+    console.log(
+      '🚀 ~ file: getMovData.js ~ line 10 ~ getMovData ~ responseJson',
+      responseJson
+    )
 
     return responseJson
   } catch (error) {

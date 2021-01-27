@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { getMovData } from '../utils/getMovData'
-import PersonItem from '../components/PersonItem'
+import { getMovData } from '../../utils/getMovData'
+import MovieItem from '../../components/SingleMovieItem'
 
-export const PersonPage = (props) => {
+export const MovieSinglePage = (props) => {
   const { type } = props
   const { id } = props.match.params
   const [newPage, setNewPage] = useState(null)
@@ -11,7 +11,6 @@ export const PersonPage = (props) => {
     ;(async () => {
       const data = await getMovData(id, type)
       setNewPage(data)
-      console.log('🚀 ~ file: PersonPage.js ~ line 14 ~ ; ~ data', data)
     })()
   }, [id, type])
 
@@ -21,7 +20,7 @@ export const PersonPage = (props) => {
 
   return (
     <div className="main-content">
-      <PersonItem info={newPage} key={newPage.id} />
+      <MovieItem info={newPage} key={newPage.id} />
     </div>
   )
 }

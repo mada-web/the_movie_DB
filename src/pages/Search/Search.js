@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
-import { getData } from '../utils/request'
-import SearchItem from '../components/SearchItems'
-import Pagination from '../components/Pagination'
+import { getData } from '../../utils/request'
+import SearchItem from '../../components/SearchItems'
+import Pagination from '../../components/Pagination'
 import { Card } from 'semantic-ui-react'
-// import { Loader } from '../components/Preloader'
 
 export const SearchPage = (props) => {
   const { find, type, history } = props

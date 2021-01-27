@@ -1,13 +1,13 @@
 import { BrowserRouter, Route } from 'react-router-dom'
 
 import Header from './components/Header'
-import { MoviesPage } from './pages/MoviesTvsPage'
+import { MoviesPage } from './pages/Movies/Movies'
 import { MainPage } from './components/Main'
-import { MovieSinglePage } from './pages/SingleMoviePage'
-import { PeoplesPage } from './pages/PeoplesPage'
-import { SearchPage } from './pages/SearchPage'
-import { TvSinglePage } from './pages/TvSinglePage'
-import { PersonPage } from './pages/PersonPage'
+import { MovieSinglePage } from './pages/Film/Film'
+import { PeoplePage } from './pages/People/People'
+import { SearchPage } from './pages/Search/Search'
+import { TvSinglePage } from './pages/TV/TV'
+import { PersonPage } from './pages/Person/Person'
 
 import './styles/App.css'
 import 'semantic-ui-css/semantic.min.css'
@@ -17,7 +17,9 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Route path="/" component={Header} />
+
         <Route exact path="/" component={MainPage} />
+
         <Route
           exact
           path="/movie/popular/:page"
@@ -25,6 +27,7 @@ const App = () => {
             <MoviesPage {...props} type={'movie'} find={'popular'} />
           )}
         />
+
         <Route
           exact
           path="/movie/now_playing/:page"
@@ -32,6 +35,7 @@ const App = () => {
             <MoviesPage {...props} type={'movie'} find={'now_playing'} />
           )}
         />
+
         <Route
           exact
           path="/movie/top_rated/:page"
@@ -39,6 +43,7 @@ const App = () => {
             <MoviesPage {...props} type={'movie'} find={'top_rated'} />
           )}
         />
+
         <Route
           exact
           path="/movie/upcoming/:page"
@@ -46,6 +51,7 @@ const App = () => {
             <MoviesPage {...props} type={'movie'} find={'upcoming'} />
           )}
         />
+
         <Route
           exact
           path="/tv/popular/:page"
@@ -53,6 +59,7 @@ const App = () => {
             <MoviesPage {...props} type={'tv'} find={'popular'} />
           )}
         />
+
         <Route
           exact
           path="/tv/airing_today/:page"
@@ -60,6 +67,7 @@ const App = () => {
             <MoviesPage {...props} type={'tv'} find={'airing_today'} />
           )}
         />
+
         <Route
           exact
           path="/tv/on_the_air/:page"
@@ -67,6 +75,7 @@ const App = () => {
             <MoviesPage {...props} type={'tv'} find={'on_the_air'} />
           )}
         />
+
         <Route
           exact
           path="/tv/top_rated/:page"
@@ -74,13 +83,15 @@ const App = () => {
             <MoviesPage {...props} type={'tv'} find={'top_rated'} />
           )}
         />
+
         <Route
           exact
           path="/person/popular/:page"
           render={(props) => (
-            <PeoplesPage {...props} type={'person'} find={'popular'} />
+            <PeoplePage {...props} type={'person'} find={'popular'} />
           )}
         />
+
         <Route
           exact
           path="/search/:input/:page"
@@ -88,16 +99,19 @@ const App = () => {
             <SearchPage {...props} type={'search'} find={'multi'} />
           )}
         />
+
         <Route
           exact
           path="/movie/:id"
           render={(props) => <MovieSinglePage {...props} type={'movie'} />}
         />
+
         <Route
           exact
           path="/tv/:id"
           render={(props) => <TvSinglePage {...props} type={'tv'} />}
         />
+
         <Route
           exact
           path="/person/:id"

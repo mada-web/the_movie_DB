@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getMovies } from '../../services/movies'
+import { getMovies } from '../../services/getMovies'
 
 export const useData = (type, page) => {
   const [data, setData] = useState({})
