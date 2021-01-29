@@ -27,7 +27,12 @@ export const SearchPage = (props) => {
     <div className="main-content">
       <Card.Group>
         {newPage.results.map((info) => (
-          <SearchItem info={info} key={info.id} />
+          <SearchItem
+            type={'movie'}
+            info={info}
+            key={info.id}
+            history={history}
+          />
         ))}
       </Card.Group>
       <Pagination setPageNumber={setPageNumber} dataRequest={newPage} />

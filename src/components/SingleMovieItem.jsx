@@ -55,7 +55,7 @@ const MovieItem = (props) => {
           <span className="cinema">{tagline}</span>
         </SemanticItem.Meta>
         <SemanticItem.Description>
-          Realease Date: {release_date ? release_date : first_air_date}
+          Realease Date: {release_date || first_air_date}
         </SemanticItem.Description>
         <SemanticItem.Description>
           Genres: {movieGenres}
@@ -64,7 +64,7 @@ const MovieItem = (props) => {
           <h2>Overview:</h2> <p> {overview}</p>
         </SemanticItem.Description>
         <SemanticItem.Extra>
-          <Label>{runtime ? runtime : episode_run_time[0]} min</Label>
+          <Label>{runtime >= 0 ? runtime : episode_run_time[0]} min</Label>
           <Label icon="heart" content={vote_average} />
           <SemanticItem.Description>Status: {status}</SemanticItem.Description>
           <SemanticItem.Description>
